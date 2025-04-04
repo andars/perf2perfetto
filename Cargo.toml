@@ -15,4 +15,4 @@ numtoa = "0.1.0"
 crate-type = ["dylib"]
 
 [build-dependencies]
-bindgen = "0.59.2"
+bindgen = "0.71.1"
