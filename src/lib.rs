@@ -6,7 +6,7 @@ mod perf {
     include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
 }
 
-use ::std::os::raw::{c_int, c_void};
+use ::std::os::raw::{c_int, c_void, c_char};
 use std::os::unix::prelude::OsStrExt;
 use ftf::Caches;
 use numtoa::NumToA;
@@ -222,7 +222,7 @@ pub unsafe extern "C" fn filter_event_early(
 
     tstate.last_seen_time = sample.time;
 
-    if (*sample.event) == 'b' as i8 {
+    if (*sample.event) == 'b' as c_char {
         // 'branches' event
         if !state.has_insns_events {
             // If the user has piped instruction events to the filter,
